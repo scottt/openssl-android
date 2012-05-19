@@ -57,8 +57,8 @@ local_shared_libraries := \
 	libcrypto
 
 local_c_includes := \
-	external/openssl \
-	external/openssl/include
+	$(NDK_PROJECT_PATH) \
+	$(NDK_PROJECT_PATH)/include
 
 local_cflags := -DMONOLITH
 
@@ -84,4 +84,4 @@ LOCAL_SHARED_LIBRARIES := $(local_shared_libraries)
 LOCAL_C_INCLUDES := $(local_c_includes)
 LOCAL_CFLAGS := $(local_cflags)
 include $(LOCAL_PATH)/../android-config.mk
-include $(BUILD_HOST_EXECUTABLE)
+# include $(BUILD_HOST_EXECUTABLE)

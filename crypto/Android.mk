@@ -482,12 +482,11 @@ local_src_files := \
 	x509v3/v3err.c
 
 local_c_includes := \
-	external/openssl \
-	external/openssl/crypto/asn1 \
-	external/openssl/crypto/evp \
-	external/openssl/include \
-	external/openssl/include/openssl \
-	external/zlib
+	$(NDK_PROJECT_PATH) \
+	$(NDK_PROJECT_PATH)/crypto/asn1 \
+	$(NDK_PROJECT_PATH)/crypto/evp \
+	$(NDK_PROJECT_PATH)/include \
+	$(NDK_PROJECT_PATH)/include/openssl
 
 local_c_flags := -DNO_WINDOWS_BRAINDEATH
 
@@ -571,7 +570,7 @@ LOCAL_STATIC_LIBRARIES += libz
 LOCAL_LDLIBS += -ldl
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libcrypto
-include $(BUILD_HOST_SHARED_LIBRARY)
+# include $(BUILD_HOST_SHARED_LIBRARY)
 
 ########################################
 # host static library, which is used by some SDK tools.
@@ -586,4 +585,4 @@ LOCAL_STATIC_LIBRARIES += libz
 LOCAL_LDLIBS += -ldl
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libcrypto_static
-include $(BUILD_HOST_STATIC_LIBRARY)
+# include_$(BUILD_HOST_STATIC_LIBRARY)
