@@ -93,6 +93,8 @@ include $(LOCAL_PATH)/../android-config.mk
 LOCAL_SRC_FILES:= ssltest.c
 LOCAL_C_INCLUDES += $(local_c_includes)
 LOCAL_SHARED_LIBRARIES := libssl libcrypto
+# libcrypto.so needs libz.so which is provided by the NDK
+LOCAL_LDLIBS := -lz
 LOCAL_MODULE:= ssltest
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
