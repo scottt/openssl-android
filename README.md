@@ -1,4 +1,4 @@
-This is the official Android OpenSSL sources with the makefiles lightly patched to build as an external project with the Android NDK. Similar to https://github.com/eighthave/openssl-android but updated for Android 4.0.3 (OpenSSL 1.0.0e) and NDK r8b.
+This is the official Android OpenSSL sources with the makefiles lightly patched to build as an external project with the Android NDK. Similar to https://github.com/eighthave/openssl-android but updated for Android 4.0.3 (OpenSSL 1.0.0e) and NDK r8d.
 
 To build, run:
 ```
