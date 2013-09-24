@@ -1,6 +1,13 @@
 local_c_flags :=
 
-local_c_includes := $(log_c_includes)
+local_c_includes := $(log_c_includes) \
+	$(APP_PROJECT_PATH) \
+	$(NDK_PROJECT_PATH)/crypto \
+	$(NDK_PROJECT_PATH)/crypto/asn1 \
+	$(NDK_PROJECT_PATH)/crypto/evp \
+	$(NDK_PROJECT_PATH)/crypto/modes \
+	$(NDK_PROJECT_PATH)/include \
+	$(NDK_PROJECT_PATH)/include/openssl
 
 local_additional_dependencies := $(LOCAL_PATH)/android-config.mk $(LOCAL_PATH)/Crypto.mk
 
@@ -67,7 +74,7 @@ LOCAL_LDLIBS += -ldl
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libcrypto-host
 LOCAL_ADDITIONAL_DEPENDENCIES := $(local_additional_dependencies)
-include $(BUILD_HOST_SHARED_LIBRARY)
+#include $(BUILD_HOST_SHARED_LIBRARY)
 
 ########################################
 # host static library, which is used by some SDK tools.
@@ -82,4 +89,4 @@ LOCAL_LDLIBS += -ldl
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libcrypto_static
 LOCAL_ADDITIONAL_DEPENDENCIES := $(local_additional_dependencies)
-include $(BUILD_HOST_STATIC_LIBRARY)
+#include $(BUILD_HOST_STATIC_LIBRARY)

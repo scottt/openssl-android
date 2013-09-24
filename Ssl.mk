@@ -1,6 +1,12 @@
 local_c_flags :=
 
-local_c_includes := $(log_c_includes)
+local_c_includes := $(log_c_includes) \
+	$(NDK_PROJECT_PATH) \
+	$(NDK_PROJECT_PATH)/crypto \
+	$(NDK_PROJECT_PATH)/crypto/asn1 \
+	$(NDK_PROJECT_PATH)/crypto/evp \
+	$(NDK_PROJECT_PATH)/include \
+	$(NDK_PROJECT_PATH)/include/openssl
 
 local_additional_dependencies := $(LOCAL_PATH)/android-config.mk $(LOCAL_PATH)/Ssl.mk
 
@@ -63,7 +69,7 @@ LOCAL_SHARED_LIBRARIES += libcrypto-host $(log_shared_libraries)
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE:= libssl-host
 LOCAL_ADDITIONAL_DEPENDENCIES := $(local_additional_dependencies)
-include $(BUILD_HOST_SHARED_LIBRARY)
+#include $(BUILD_HOST_SHARED_LIBRARY)
 
 #######################################
 # ssltest

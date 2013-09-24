@@ -2,7 +2,8 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-local_c_includes :=
+local_c_includes := 	$(NDK_PROJECT_PATH) \
+			$(NDK_PROJECT_PATH)/include
 local_c_flags :=
 
 local_additional_dependencies := $(LOCAL_PATH)/android-config.mk $(LOCAL_PATH)/Apps.mk
@@ -30,4 +31,4 @@ LOCAL_C_INCLUDES := $(host_c_includes)
 LOCAL_CFLAGS := $(host_c_flags)
 LOCAL_ADDITIONAL_DEPENDENCIES := $(local_additional_dependencies)
 include $(LOCAL_PATH)/android-config.mk
-include $(BUILD_HOST_EXECUTABLE)
+#include $(BUILD_HOST_EXECUTABLE)
